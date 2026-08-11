@@ -10,6 +10,8 @@ const addThemeClass = (bodyClass, btnClass) => {
 const savedBodyTheme = localStorage.getItem('portfolio-theme') || 'light'
 const savedBtnTheme = localStorage.getItem('portfolio-btn-theme') || 'fa-moon'
 
+body.classList.remove('light', 'dark')
+btnTheme.classList.remove('fa-moon', 'fa-sun')
 addThemeClass(savedBodyTheme, savedBtnTheme)
 
 const isDark = () => body.classList.contains('dark')
@@ -61,3 +63,17 @@ const scrollUp = () => {
 }
 
 document.addEventListener('scroll', scrollUp)
+
+const projectToggles = document.querySelectorAll('[data-project-toggle]')
+
+projectToggles.forEach((toggle) => {
+  toggle.addEventListener('click', () => {
+    const project = toggle.closest('.project')
+    const details = document.getElementById(toggle.getAttribute('aria-controls'))
+    const shouldOpen = toggle.getAttribute('aria-expanded') !== 'true'
+
+    toggle.setAttribute('aria-expanded', String(shouldOpen))
+    details.hidden = !shouldOpen
+    project.classList.toggle('project--open', shouldOpen)
+  })
+})

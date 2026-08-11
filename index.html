@@ -56,9 +56,9 @@
     <main>
       <section class="about center">
         <h1>你好，我是<span class="about__name">袁骁</span>。</h1>
-        <h2 class="about__role">机器人算法与运动控制开发者</h2>
+        <h2 class="about__role">机器人数据工程师</h2>
         <p class="about__desc">
-          专注于机器人运动控制、动作重定向、数据处理与交互式工具开发。
+          专注于人体数据采集、数据处理、机器人动作重定向、全身遥操开发。
           这里整理我的项目经历、技术能力和实践成果。
         </p>
 
@@ -71,7 +71,7 @@
             <i aria-hidden="true" class="fab fa-github"></i>
           </a>
 
-          <!-- 将邮箱替换成你自己的邮箱 -->
+          <!-- 邮箱 -->
           <a
             href="mailto:yxiaoo@qq.com"
             aria-label="发送邮件"
@@ -87,67 +87,254 @@
 
         <div class="projects__grid">
           <article class="project">
-            <h3>机器人动作重定向</h3>
-            <p class="project__description">
-              将 BVH 人体动作数据转换为机器人可执行的关节动作，并提供动作调节与可视化能力。
-            </p>
-            <ul class="project__stack">
-              <li class="project__stack-item">Python</li>
-              <li class="project__stack-item">BVH</li>
-              <li class="project__stack-item">逆运动学</li>
-              <li class="project__stack-item">机器人</li>
-            </ul>
-
-            <!-- 将链接替换成该项目的 GitHub 地址 -->
-            <a
-              href="https://github.com/fourthyuan"
-              aria-label="查看项目源码"
-              class="link link--icon"
+            <button
+              type="button"
+              class="project__summary"
+              aria-expanded="false"
+              aria-controls="project-data-capture"
+              data-project-toggle
             >
-              <i aria-hidden="true" class="fab fa-github"></i>
-            </a>
+              <span class="project__summary-main">
+                <span class="project__eyebrow">Project 01</span>
+                <span class="project__name">人体动作数据采集与质量处理</span>
+                <span class="project__description">
+                  面向多相机视频流和 PICO/XRobot 追踪数据，完成动作采集、清洗、滤波、重采样与格式化。
+                </span>
+              </span>
+              <i aria-hidden="true" class="fas fa-chevron-down project__toggle-icon"></i>
+            </button>
+
+            <div class="project__details" id="project-data-capture" hidden>
+              <div class="project__details-grid">
+                <div>
+                  <h4>项目介绍</h4>
+                  <p>
+                    该项目聚焦人体动作数据的采集和质量处理，与第三个项目的实时机器人遥操相互独立。
+                    一方面验证多相机视频流到 SMPL-X 人体动作结果的处理流程；另一方面通过
+                    PICO/XRobot 记录全身追踪数据，生成可供后续分析、重定向和数据集制作使用的标准化文件。
+                  </p>
+
+                  <h4>我的工作</h4>
+                  <ul class="project__bullets">
+                    <li>跑通多相机视频采集、相机标定、序列组织和 SMPL-X 动作恢复流程。</li>
+                    <li>通过 PICO/XRobot SDK 采集人体关节位置、旋转和设备时间戳。</li>
+                    <li>处理重复时间戳和设备时间戳异常，避免采集结果出现停帧或时间轴塌缩。</li>
+                    <li>使用 One Euro 滤波、高频帧重采样和坐标原点修复，提升动作数据的连续性。</li>
+                    <li>将处理后的数据保存为 GMR 可读取的 NPZ，并通过可视化工具检查数据质量。</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4>技术栈</h4>
+                  <ul class="project__stack">
+                    <li class="project__stack-item">Python</li>
+                    <li class="project__stack-item">PICO/XRobot</li>
+                    <li class="project__stack-item">多相机视频</li>
+                    <li class="project__stack-item">SMPL-X</li>
+                    <li class="project__stack-item">One Euro Filter</li>
+                    <li class="project__stack-item">时间戳处理</li>
+                    <li class="project__stack-item">NPZ</li>
+                    <li class="project__stack-item">数据可视化</li>
+                  </ul>
+
+                  <h4>相关链接</h4>
+                  <div class="project__links">
+                    <!-- 将 href 改成项目一的开源仓库地址 -->
+                    <a
+                      class="link"
+                      href="https://github.com/YOUR_USERNAME/project-one-repository"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i aria-hidden="true" class="fab fa-github"></i>
+                      pico采集人体数据
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project__media-grid">
+                <div class="project__media">
+                  <h4>视频流采集</h4>
+                  <video controls preload="metadata" aria-label="视频流采集演示视频">
+                    <source src="./assets/videos/video-stream-capture.mp4" type="video/mp4" />
+                  </video>
+                </div>
+
+                <div class="project__media">
+                  <h4>PICO 数据采集</h4>
+                  <video controls preload="metadata" aria-label="PICO 数据采集演示视频">
+                    <source src="./assets/videos/pico采集.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
           </article>
 
           <article class="project">
-            <h3>人体尺度自动调节</h3>
-            <p class="project__description">
-              根据人体骨架数据自动估计身体比例，减少动作重定向过程中的手动调参工作。
-            </p>
-            <ul class="project__stack">
-              <li class="project__stack-item">Python</li>
-              <li class="project__stack-item">骨架数据</li>
-              <li class="project__stack-item">数值优化</li>
-              <li class="project__stack-item">数据分析</li>
-            </ul>
-
-            <a
-              href="https://github.com/fourthyuan"
-              aria-label="查看项目源码"
-              class="link link--icon"
+            <button
+              type="button"
+              class="project__summary"
+              aria-expanded="false"
+              aria-controls="project-human-scale"
+              data-project-toggle
             >
-              <i aria-hidden="true" class="fab fa-github"></i>
-            </a>
+              <span class="project__summary-main">
+                <span class="project__eyebrow">Project 02</span>
+                <span class="project__name">GMR / SOMA 动作重定向工具链</span>
+                <span class="project__description">
+                  掌握 GMR 与 SOMA 两套开源重定向框架，完成多种人体动作格式到不同人形机器人模型的适配。
+                </span>
+              </span>
+              <i aria-hidden="true" class="fas fa-chevron-down project__toggle-icon"></i>
+            </button>
+
+            <div class="project__details" id="project-human-scale" hidden>
+              <div class="project__details-grid">
+                <div>
+                  <h4>项目介绍</h4>
+                  <p>
+                    该项目聚焦人体动作到人形机器人关节轨迹的离线重定向和数据处理。
+                    使用 GMR 处理 SMPL-X、BVH 等人体动作输入，设置脚本自动配置人体缩放，处理四元数旋转、
+                    配置IK 目标和关节权重，再通过 MuJoCo 观察机器人动作效果；同时使用 SOMA
+                    跑通 BVH 到机器人 CSV/PKL 的完整流程，为后续动作播放、数据集制作和机器人部署准备标准化数据。
+                  </p>
+
+                  <h4>我的工作</h4>
+                  <ul class="project__bullets">
+                    <li>熟悉 SOMA 的 scaler、retargeter 和 feet stabilizer 配置，处理人体与机器人之间的运动学差异。</li>
+                    <li>掌握 GMR 的 数据输入格式，以及人体骨架到机器人 link 的映射、尺度和姿态偏置配置。</li>
+                    <li>开发 <code>auto_tune_human_scale.py</code>，根据参考帧的位置误差自动搜索人体骨架尺度，减少人工反复修改配置的工作量。</li>
+                    <li>开发 <code>smooth_pkl.py</code>、<code>trim_pkl_frames.py</code> 和 <code>pkl_dataset_player.py</code>，完成动作平滑、序列裁剪、批量处理和 MuJoCo 播放质检。</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4>技术栈</h4>
+                  <ul class="project__stack">
+                    <li class="project__stack-item">Python</li>
+                    <li class="project__stack-item">GMR</li>
+                    <li class="project__stack-item">SOMA</li>
+                    <li class="project__stack-item">SMPL-X / BVH</li>
+                    <li class="project__stack-item">IK / FK</li>
+                    <li class="project__stack-item">MuJoCo</li>
+                    <li class="project__stack-item">Newton / Warp</li>
+                    <li class="project__stack-item">CSV / PKL</li>
+                    <li class="project__stack-item">Linux</li>
+                  </ul>
+
+                  <h4>相关链接</h4>
+                  <div class="project__links">
+                    <!-- 将下面三个 href 分别改成 GMR、SOMA 和个人工具仓库地址 -->
+                    <a
+                      class="link"
+                      href="https://github.com/YOUR_USERNAME/gmr-project"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i aria-hidden="true" class="fab fa-github"></i>
+                      GMR自动算缩放
+                    </a>
+                    <a
+                      class="link"
+                      href="https://github.com/YOUR_USERNAME/soma-retargeter"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i aria-hidden="true" class="fab fa-github"></i>
+                      PKL数据精修
+                    </a>
+                    <a
+                      class="link"
+                      href="https://github.com/YOUR_USERNAME/retarget-tools"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i aria-hidden="true" class="fas fa-external-link-alt"></i>
+                      PKL可视化裁剪
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project__media">
+                <h4>项目视频</h4>
+                <video controls preload="metadata">
+                  <source src="./assets/videos/重定向.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
           </article>
 
           <article class="project">
-            <h3>机器人数据集与调参工具</h3>
-            <p class="project__description">
-              构建动作数据转换、数据集生成和参数调节工具，提升机器人动作实验的效率。
-            </p>
-            <ul class="project__stack">
-              <li class="project__stack-item">Python</li>
-              <li class="project__stack-item">数据集</li>
-              <li class="project__stack-item">可视化界面</li>
-              <li class="project__stack-item">Git</li>
-            </ul>
-
-            <a
-              href="https://github.com/fourthyuan"
-              aria-label="查看项目源码"
-              class="link link--icon"
+            <button
+              type="button"
+              class="project__summary"
+              aria-expanded="false"
+              aria-controls="project-dataset-tool"
+              data-project-toggle
             >
-              <i aria-hidden="true" class="fab fa-github"></i>
-            </a>
+              <span class="project__summary-main">
+                <span class="project__eyebrow">Project 03</span>
+                <span class="project__name">Magicbot Z1 PICO 全身遥操</span>
+                <span class="project__description">
+                  基于  PICO 全身追踪与 GMR，将人体动作实时重定向到 Magicbot Z1，并通过 LCM 发布关节与手部控制指令。
+                </span>
+              </span>
+              <i aria-hidden="true" class="fas fa-chevron-down project__toggle-icon"></i>
+            </button>
+
+            <div class="project__details" id="project-dataset-tool" hidden>
+              <div class="project__details-grid">
+                <div>
+                  <h4>项目介绍</h4>
+                  <p>
+                    搭建从  PICO 设备到 Magicbot Z1 人形机器人的实时全身遥操链路：
+                    采集头显、手柄、全身关节和手部输入，使用 GMR 将人体姿态重定向为
+                    Z1 的关节状态，再通过 LCM 发送到机器人控制端。
+                  </p>
+
+                  <h4>我的工作</h4>
+                  <ul class="project__bullets">
+                    <li>接入 XRoboToolkit Python SDK，读取头显、手柄、全身追踪和手部输入数据。</li>
+                    <li>实现 XRobotStreamer 到 GMR 再到 Z1 关节状态的实时数据处理流程。</li>
+                    <li>处理 Z1 关节顺序、关节限位、偏航角校正和动作平滑，提升遥操稳定性。</li>
+                    <li>通过 LCM 以固定频率发布骨盆姿态、关节位置和关节速度。</li>
+                    <li>将 PICO 扳机与握力输入映射到双灵巧手/夹爪控制，并加入暂停和默认姿态切换。</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4>技术栈</h4>
+                  <ul class="project__stack">
+                    <li class="project__stack-item">Python</li>
+                    <li class="project__stack-item">GMR</li>
+                    <li class="project__stack-item">XRoboToolkit</li>
+                    <li class="project__stack-item">PICO</li>
+                    <li class="project__stack-item">LCM</li>
+                    <li class="project__stack-item">Magicbot Z1</li>
+                    <li class="project__stack-item">实时控制</li>
+                  </ul>
+
+                </div>
+              </div>
+
+              <div class="project__media-grid">
+                <div class="project__media">
+                  <h4>全身遥操演示</h4>
+                  <video controls preload="metadata" aria-label="全身遥操演示视频">
+                    <source src="./assets/videos/全身遥操.mp4" type="video/mp4" />
+                  </video>
+                </div>
+
+                <div class="project__media">
+                  <h4>补充演示</h4>
+                  <video controls preload="metadata" aria-label="全身遥操补充演示视频">
+                    <source src="./assets/videos/抓取.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
           </article>
         </div>
       </section>
@@ -156,17 +343,17 @@
         <h2 class="section__title">技术能力</h2>
         <ul class="skills__list">
           <li class="skills__list-item btn btn--plain">Python</li>
-          <li class="skills__list-item btn btn--plain">C++</li>
-          <li class="skills__list-item btn btn--plain">机器人运动控制</li>
-          <li class="skills__list-item btn btn--plain">动作重定向</li>
-          <li class="skills__list-item btn btn--plain">逆运动学</li>
-          <li class="skills__list-item btn btn--plain">BVH</li>
-          <li class="skills__list-item btn btn--plain">PyTorch</li>
-          <li class="skills__list-item btn btn--plain">数据处理</li>
-          <li class="skills__list-item btn btn--plain">HTML/CSS</li>
-          <li class="skills__list-item btn btn--plain">JavaScript</li>
+          <li class="skills__list-item btn btn--plain">C/C++</li>
+          <li class="skills__list-item btn btn--plain">机器人数据重定向</li>
+          <li class="skills__list-item btn btn--plain">动作捕捉</li>
+          <li class="skills__list-item btn btn--plain">视频流动作处理</li>
+          <li class="skills__list-item btn btn--plain">实时数据处理</li>
+          <li class="skills__list-item btn btn--plain">IK / FK</li>
+          <li class="skills__list-item btn btn--plain">数据清洗与质量检查</li>
           <li class="skills__list-item btn btn--plain">Linux</li>
-          <li class="skills__list-item btn btn--plain">Git</li>
+          <li class="skills__list-item btn btn--plain">VR 全身数据采集</li>
+          <li class="skills__list-item btn btn--plain">机器人全身遥操</li>
+          <li class="skills__list-item btn btn--plain">数据通讯</li>
         </ul>
       </section>
 
