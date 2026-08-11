@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="你的个人作品集，展示项目经历、技术能力与求职信息"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/fa62c117c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>袁骁 | 个人作品集</title>
+  </head>
+  <body class="light" id="top">
+    <header class="header center">
+      <h3>
+        <a href="#top" class="link">FY.</a>
+      </h3>
+
+      <nav class="nav center">
+        <ul class="nav__list center">
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#projects">项目经历</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#skills">技术能力</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#contact">联系我</a>
+          </li>
+        </ul>
+
+        <button type="button" aria-label="切换主题" class="btn btn--icon">
+          <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
+        </button>
+
+        <button
+          type="button"
+          aria-label="打开导航菜单"
+          class="btn btn--icon nav__hamburger"
+        >
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="about center">
+        <h1>你好，我是<span class="about__name">袁骁</span>。</h1>
+        <h2 class="about__role">机器人算法与运动控制开发者</h2>
+        <p class="about__desc">
+          专注于机器人运动控制、动作重定向、数据处理与交互式工具开发。
+          这里整理我的项目经历、技术能力和实践成果。
+        </p>
+
+        <div class="about__contact center">
+          <a
+            href="https://github.com/fourthyuan"
+            aria-label="GitHub"
+            class="link link--icon"
+          >
+            <i aria-hidden="true" class="fab fa-github"></i>
+          </a>
+
+          <!-- 将邮箱替换成你自己的邮箱 -->
+          <a
+            href="mailto:yxiaoo@qq.com"
+            aria-label="发送邮件"
+            class="link link--icon"
+          >
+            <i aria-hidden="true" class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects">
+        <h2 class="section__title">项目经历</h2>
+
+        <div class="projects__grid">
+          <article class="project">
+            <h3>机器人动作重定向</h3>
+            <p class="project__description">
+              将 BVH 人体动作数据转换为机器人可执行的关节动作，并提供动作调节与可视化能力。
+            </p>
+            <ul class="project__stack">
+              <li class="project__stack-item">Python</li>
+              <li class="project__stack-item">BVH</li>
+              <li class="project__stack-item">逆运动学</li>
+              <li class="project__stack-item">机器人</li>
+            </ul>
+
+            <!-- 将链接替换成该项目的 GitHub 地址 -->
+            <a
+              href="https://github.com/fourthyuan"
+              aria-label="查看项目源码"
+              class="link link--icon"
+            >
+              <i aria-hidden="true" class="fab fa-github"></i>
+            </a>
+          </article>
+
+          <article class="project">
+            <h3>人体尺度自动调节</h3>
+            <p class="project__description">
+              根据人体骨架数据自动估计身体比例，减少动作重定向过程中的手动调参工作。
+            </p>
+            <ul class="project__stack">
+              <li class="project__stack-item">Python</li>
+              <li class="project__stack-item">骨架数据</li>
+              <li class="project__stack-item">数值优化</li>
+              <li class="project__stack-item">数据分析</li>
+            </ul>
+
+            <a
+              href="https://github.com/fourthyuan"
+              aria-label="查看项目源码"
+              class="link link--icon"
+            >
+              <i aria-hidden="true" class="fab fa-github"></i>
+            </a>
+          </article>
+
+          <article class="project">
+            <h3>机器人数据集与调参工具</h3>
+            <p class="project__description">
+              构建动作数据转换、数据集生成和参数调节工具，提升机器人动作实验的效率。
+            </p>
+            <ul class="project__stack">
+              <li class="project__stack-item">Python</li>
+              <li class="project__stack-item">数据集</li>
+              <li class="project__stack-item">可视化界面</li>
+              <li class="project__stack-item">Git</li>
+            </ul>
+
+            <a
+              href="https://github.com/fourthyuan"
+              aria-label="查看项目源码"
+              class="link link--icon"
+            >
+              <i aria-hidden="true" class="fab fa-github"></i>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section skills" id="skills">
+        <h2 class="section__title">技术能力</h2>
+        <ul class="skills__list">
+          <li class="skills__list-item btn btn--plain">Python</li>
+          <li class="skills__list-item btn btn--plain">C++</li>
+          <li class="skills__list-item btn btn--plain">机器人运动控制</li>
+          <li class="skills__list-item btn btn--plain">动作重定向</li>
+          <li class="skills__list-item btn btn--plain">逆运动学</li>
+          <li class="skills__list-item btn btn--plain">BVH</li>
+          <li class="skills__list-item btn btn--plain">PyTorch</li>
+          <li class="skills__list-item btn btn--plain">数据处理</li>
+          <li class="skills__list-item btn btn--plain">HTML/CSS</li>
+          <li class="skills__list-item btn btn--plain">JavaScript</li>
+          <li class="skills__list-item btn btn--plain">Linux</li>
+          <li class="skills__list-item btn btn--plain">Git</li>
+        </ul>
+      </section>
+
+      <section class="section contact center" id="contact">
+        <h2 class="section__title">联系我</h2>
+        <a href="mailto:yxiaoo@qq.com">
+          <span class="btn btn--outline">发送邮件</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="footer__link">© 2026 袁骁</span>
+    </footer>
+
+    <div class="scroll-container">
+      <div class="scroll-top">
+        <a aria-label="返回顶部" href="#top">
+          <i aria-hidden="true" class="fas fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
