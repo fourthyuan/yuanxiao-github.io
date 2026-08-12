@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="你的个人作品集，展示项目经历、技术能力与求职信息"
+      content="袁骁的个人作品集，展示机器人数据处理、动作重定向、仿真验证与遥操作相关经历"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +29,10 @@
       <nav class="nav center">
         <ul class="nav__list center">
           <li class="nav__list-item">
-            <a class="link link--nav" href="#projects">工作项目经历</a>
+            <a class="link link--nav" href="#projects">工作经历</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#internships">实习经历</a>
           </li>
           <li class="nav__list-item">
             <a class="link link--nav" href="#skills">技术能力</a>
@@ -58,8 +61,8 @@
         <h1>你好，我是<span class="about__name">袁骁</span>。</h1>
         <h2 class="about__role">机器人数据工程师</h2>
         <p class="about__desc">
-          专注于人体数据采集、数据处理、机器人动作重定向、全身遥操开发。
-          这里整理我的项目经历、技术能力和实践成果。
+          精通机器人小脑控制全链路，主要从事人体数据采集、数据处理与机器人动作重定向，全身遥操作相关工作。
+          此处整理我的项目经历、技术能力与实践成果。
         </p>
 
         <div class="about__contact center">
@@ -91,14 +94,103 @@
               type="button"
               class="project__summary"
               aria-expanded="false"
-              aria-controls="project-data-capture"
+              aria-controls="project-dataset-tool"
               data-project-toggle
             >
               <span class="project__summary-main">
                 <span class="project__eyebrow">Project 01</span>
+                <span class="project__name">Magicbot Z1 PICO 全身遥操作</span>
+                <span class="project__description">
+                  基于 PICO 全身追踪与 GMR，实现人体动作到 Magicbot Z1 的实时映射，并通过 LCM 发布关节与手部控制指令。
+                </span>
+                <span class="project__action">
+                  <span data-project-action-text>查看详情</span>
+                </span>
+              </span>
+              <i aria-hidden="true" class="fas fa-chevron-down project__toggle-icon"></i>
+            </button>
+
+            <div class="project__details" id="project-dataset-tool" hidden>
+              <div class="project__details-grid">
+                <div>
+                  <h4>项目介绍</h4>
+                  <p>
+                    实现从 PICO 设备到 Magicbot Z1 人形机器人的实时全身遥操作流程：
+                    采集头显、手柄、全身关节及手部输入，使用 GMR 将人体姿态重定向为
+                    Z1 的关节状态，再通过 LCM 发送至机器人控制端。
+                  </p>
+
+                  <h4>我的工作</h4>
+                  <ul class="project__bullets">
+                    <li>独立完成 XRobotStreamer 到 GMR 再到 Z1 关节状态的实时数据处理流程。</li>
+                    <li>处理 Z1 关节顺序、关节限位、偏航角校正与动作平滑，提升遥操作稳定性。</li>
+                    <li>通过 LCM 以固定频率发布骨盆姿态、关节位置和关节速度，保障控制端输入时序稳定。</li>
+                    <li>将 PICO 扳机与握力输入映射到双灵巧手/夹爪控制，并加入暂停和默认姿态切换。</li>
+                    <li>根据实际运行效果持续调整输入映射与动作平滑策略，保持控制表现一致。</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4>技术栈</h4>
+                  <ul class="project__stack">
+                    <li class="project__stack-item">Python</li>
+                    <li class="project__stack-item">GMR</li>
+                    <li class="project__stack-item">XRoboToolkit</li>
+                    <li class="project__stack-item">PICO</li>
+                    <li class="project__stack-item">LCM</li>
+                    <li class="project__stack-item">Magicbot Z1</li>
+                    <li class="project__stack-item">实时遥操作</li>
+                  </ul>
+
+                  <h4>相关链接</h4>
+                  <div class="project__links">
+                    <a
+                      class="link"
+                      href="https://github.com/YOUR_USERNAME/dataset-teleop-repository"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i aria-hidden="true" class="fab fa-github"></i>
+                      全身遥操作系统
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project__media-grid">
+                <div class="project__media">
+                  <h4>全身遥操作演示</h4>
+                  <video controls preload="metadata" aria-label="全身遥操作演示视频">
+                    <source src="./assets/videos/全身遥操.mp4" type="video/mp4" />
+                  </video>
+                </div>
+
+                <div class="project__media">
+                  <h4>补充演示</h4>
+                  <video controls preload="metadata" aria-label="全身遥操作补充演示视频">
+                    <source src="./assets/videos/抓取.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <button
+              type="button"
+              class="project__summary"
+              aria-expanded="false"
+              aria-controls="project-data-capture"
+              data-project-toggle
+            >
+              <span class="project__summary-main">
+                <span class="project__eyebrow">Project 02</span>
                 <span class="project__name">人体动作数据采集与质量处理</span>
                 <span class="project__description">
                   面向多相机视频流和 PICO/XRobot 追踪数据，完成动作采集、清洗、滤波、重采样与格式化。
+                </span>
+                <span class="project__action">
+                  <span data-project-action-text>查看详情</span>
                 </span>
               </span>
               <i aria-hidden="true" class="fas fa-chevron-down project__toggle-icon"></i>
@@ -109,18 +201,19 @@
                 <div>
                   <h4>项目介绍</h4>
                   <p>
-                    该项目聚焦人体动作数据的采集和质量处理，与第三个项目的实时机器人遥操相互独立。
-                    一方面验证多相机视频流到 SMPL-X 人体动作结果的处理流程；另一方面通过
-                    PICO/XRobot 记录全身追踪数据，生成可供后续分析、重定向和数据集制作使用的标准化文件。
+                    聚焦人体动作数据的采集与质量处理：将 PICO/XRobot 追踪结果整理为标准化文件，
+                    保证数据可复查、可复用；完成多相机视频流到
+         SMPL-X 动作恢复的上游流程，并将轨迹整理为 BeyondMimic / Isaac Lab 可直接接入的 motion 数据，熟悉训练前的数据格式规范、回放验证流程及任务接入方式。
                   </p>
 
                   <h4>我的工作</h4>
                   <ul class="project__bullets">
-                    <li>跑通多相机视频采集、相机标定、序列组织和 SMPL-X 动作恢复流程。</li>
+                    <li>完成多相机视频采集、相机标定、序列组织与 SMPL-X 动作恢复流程。</li>
                     <li>通过 PICO/XRobot SDK 采集人体关节位置、旋转和设备时间戳。</li>
                     <li>处理重复时间戳和设备时间戳异常，避免采集结果出现停帧或时间轴塌缩。</li>
-                    <li>使用 One Euro 滤波、高频帧重采样和坐标原点修复，提升动作数据的连续性。</li>
-                    <li>将处理后的数据保存为 GMR 可读取的 NPZ，并通过可视化工具检查数据质量。</li>
+                    <li>使用 One Euro 滤波、高频帧重采样与坐标原点修复，提升动作数据连续性。</li>
+                    <li>将处理后的数据保存为可读取的 NPZ，统一关节顺序、采样频率和姿态格式。</li>
+                    <li>将重定向结果接入 BeyondMimic / Isaac Lab 的 motion 管线，用于校验 motion csv、npz、replay 与训练入口之间的数据格式一致性。</li>
                   </ul>
                 </div>
 
@@ -139,7 +232,6 @@
 
                   <h4>相关链接</h4>
                   <div class="project__links">
-                    <!-- 将 href 改成项目一的开源仓库地址 -->
                     <a
                       class="link"
                       href="https://github.com/YOUR_USERNAME/project-one-repository"
@@ -147,7 +239,7 @@
                       rel="noreferrer"
                     >
                       <i aria-hidden="true" class="fab fa-github"></i>
-                      pico采集人体数据
+                      PICO 人体数据采集
                     </a>
                   </div>
                 </div>
@@ -180,10 +272,13 @@
               data-project-toggle
             >
               <span class="project__summary-main">
-                <span class="project__eyebrow">Project 02</span>
+                <span class="project__eyebrow">Project 03</span>
                 <span class="project__name">GMR / SOMA 动作重定向工具链</span>
                 <span class="project__description">
-                  掌握 GMR 与 SOMA 两套开源重定向框架，完成多种人体动作格式到不同人形机器人模型的适配。
+                  掌握 GMR 与 SOMA 两套开源重定向框架，完成多种人体动作格式向不同人形机器人模型的适配。
+                </span>
+                <span class="project__action">
+                  <span data-project-action-text>查看详情</span>
                 </span>
               </span>
               <i aria-hidden="true" class="fas fa-chevron-down project__toggle-icon"></i>
@@ -194,18 +289,19 @@
                 <div>
                   <h4>项目介绍</h4>
                   <p>
-                    该项目聚焦人体动作到人形机器人关节轨迹的离线重定向和数据处理。
-                    使用 GMR 处理 SMPL-X、BVH 等人体动作输入，设置脚本自动配置人体缩放，处理四元数旋转、
-                    配置IK 目标和关节权重，再通过 MuJoCo 观察机器人动作效果；同时使用 SOMA
-                    跑通 BVH 到机器人 CSV/PKL 的完整流程，为后续动作播放、数据集制作和机器人部署准备标准化数据。
+                    进行人体动作到人形机器人关节轨迹的离线重定向与数据处理。
+                    使用 GMR 处理 SMPL-X、BVH 等人体动作输入，编写脚本自动配置人体缩放，处理四元数姿态变换、
+                    配置 IK 目标和关节权重，再通过 MuJoCo 观察机器人动作效果；同时使用 SOMA
+                    完成 BVH 到机器人 CSV/PKL 的完整流程，并完成 BeyondMimic 基础训练流程验证。
                   </p>
 
                   <h4>我的工作</h4>
                   <ul class="project__bullets">
                     <li>熟悉 SOMA 的 scaler、retargeter 和 feet stabilizer 配置，处理人体与机器人之间的运动学差异。</li>
-                    <li>掌握 GMR 的 数据输入格式，以及人体骨架到机器人 link 的映射、尺度和姿态偏置配置。</li>
+                    <li>掌握 GMR 的数据输入格式，以及人体骨架到机器人 link 的映射、尺度和姿态偏置配置。</li>
                     <li>开发 <code>auto_tune_human_scale.py</code>，根据参考帧的位置误差自动搜索人体骨架尺度，减少人工反复修改配置的工作量。</li>
                     <li>开发 <code>smooth_pkl.py</code>、<code>trim_pkl_frames.py</code> 和 <code>pkl_dataset_player.py</code>，完成动作平滑、序列裁剪、批量处理和 MuJoCo 播放质检。</li>
+                    <li>完成 BeyondMimic 基础训练流程验证，熟悉任务配置、奖励项、动作频率与回放验证流程。</li>
                   </ul>
                 </div>
 
@@ -225,7 +321,6 @@
 
                   <h4>相关链接</h4>
                   <div class="project__links">
-                    <!-- 将下面三个 href 分别改成 GMR、SOMA 和个人工具仓库地址 -->
                     <a
                       class="link"
                       href="https://github.com/YOUR_USERNAME/gmr-project"
@@ -233,7 +328,7 @@
                       rel="noreferrer"
                     >
                       <i aria-hidden="true" class="fab fa-github"></i>
-                      GMR自动算缩放
+                      GMR 人体缩放自动估计
                     </a>
                     <a
                       class="link"
@@ -242,7 +337,7 @@
                       rel="noreferrer"
                     >
                       <i aria-hidden="true" class="fab fa-github"></i>
-                      PKL数据精修
+                      PKL 轨迹精修
                     </a>
                     <a
                       class="link"
@@ -251,7 +346,7 @@
                       rel="noreferrer"
                     >
                       <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-                      PKL可视化裁剪
+                      PKL 可视化裁剪工具
                     </a>
                   </div>
                 </div>
@@ -265,73 +360,126 @@
               </div>
             </div>
           </article>
+        </div>
+      </section>
 
+      <section id="internships" class="section internships projects">
+        <h2 class="section__title">实习经历</h2>
+
+        <div class="projects__grid">
           <article class="project">
             <button
               type="button"
               class="project__summary"
               aria-expanded="false"
-              aria-controls="project-dataset-tool"
+              aria-controls="internship-project-one"
               data-project-toggle
             >
               <span class="project__summary-main">
-                <span class="project__eyebrow">Project 03</span>
-                <span class="project__name">Magicbot Z1 PICO 全身遥操</span>
+                <span class="project__eyebrow">Internship 01</span>
+                <span class="project__name">实习项目名称一</span>
                 <span class="project__description">
-                  基于  PICO 全身追踪与 GMR，将人体动作实时重定向到 Magicbot Z1，并通过 LCM 发布关节与手部控制指令。
+                  待填写：用一到两句话概括该实习项目的业务背景、技术方向和个人职责。
+                </span>
+                <span class="project__action">
+                  <span data-project-action-text>查看详情</span>
                 </span>
               </span>
               <i aria-hidden="true" class="fas fa-chevron-down project__toggle-icon"></i>
             </button>
 
-            <div class="project__details" id="project-dataset-tool" hidden>
+            <div class="project__details" id="internship-project-one" hidden>
               <div class="project__details-grid">
                 <div>
+                  <h4>实习信息</h4>
+                  <p>
+                    待填写：公司 / 部门 / 岗位 / 实习时间。
+                  </p>
+
                   <h4>项目介绍</h4>
                   <p>
-                    搭建从  PICO 设备到 Magicbot Z1 人形机器人的实时全身遥操链路：
-                    采集头显、手柄、全身关节和手部输入，使用 GMR 将人体姿态重定向为
-                    Z1 的关节状态，再通过 LCM 发送到机器人控制端。
+                    待填写：说明项目目标、输入输出、应用场景，以及该项目在团队工作中的位置。
                   </p>
 
                   <h4>我的工作</h4>
                   <ul class="project__bullets">
-                    <li>接入 XRoboToolkit Python SDK，读取头显、手柄、全身追踪和手部输入数据。</li>
-                    <li>实现 XRobotStreamer 到 GMR 再到 Z1 关节状态的实时数据处理流程。</li>
-                    <li>处理 Z1 关节顺序、关节限位、偏航角校正和动作平滑，提升遥操稳定性。</li>
-                    <li>通过 LCM 以固定频率发布骨盆姿态、关节位置和关节速度。</li>
-                    <li>将 PICO 扳机与握力输入映射到双灵巧手/夹爪控制，并加入暂停和默认姿态切换。</li>
+                    <li>待填写：负责的模块、工具链或流程。</li>
+                    <li>待填写：解决的具体问题或优化点。</li>
+                    <li>待填写：交付的脚本、数据、系统功能或验证结果。</li>
                   </ul>
                 </div>
 
                 <div>
                   <h4>技术栈</h4>
                   <ul class="project__stack">
-                    <li class="project__stack-item">Python</li>
-                    <li class="project__stack-item">GMR</li>
-                    <li class="project__stack-item">XRoboToolkit</li>
-                    <li class="project__stack-item">PICO</li>
-                    <li class="project__stack-item">LCM</li>
-                    <li class="project__stack-item">Magicbot Z1</li>
-                    <li class="project__stack-item">实时控制</li>
+                    <li class="project__stack-item">待填写</li>
+                    <li class="project__stack-item">待填写</li>
+                    <li class="project__stack-item">待填写</li>
                   </ul>
 
+                  <h4>成果产出</h4>
+                  <p>
+                    待填写：量化结果、上线/交付情况、复用价值或团队反馈。
+                  </p>
                 </div>
               </div>
+            </div>
+          </article>
 
-              <div class="project__media-grid">
-                <div class="project__media">
-                  <h4>全身遥操演示</h4>
-                  <video controls preload="metadata" aria-label="全身遥操演示视频">
-                    <source src="./assets/videos/全身遥操.mp4" type="video/mp4" />
-                  </video>
+          <article class="project">
+            <button
+              type="button"
+              class="project__summary"
+              aria-expanded="false"
+              aria-controls="internship-project-two"
+              data-project-toggle
+            >
+              <span class="project__summary-main">
+                <span class="project__eyebrow">Internship 02</span>
+                <span class="project__name">实习项目名称二</span>
+                <span class="project__description">
+                  待填写：用一到两句话概括该实习项目的业务背景、技术方向和个人职责。
+                </span>
+                <span class="project__action">
+                  <span data-project-action-text>查看详情</span>
+                </span>
+              </span>
+              <i aria-hidden="true" class="fas fa-chevron-down project__toggle-icon"></i>
+            </button>
+
+            <div class="project__details" id="internship-project-two" hidden>
+              <div class="project__details-grid">
+                <div>
+                  <h4>实习信息</h4>
+                  <p>
+                    待填写：公司 / 部门 / 岗位 / 实习时间。
+                  </p>
+
+                  <h4>项目介绍</h4>
+                  <p>
+                    待填写：说明项目目标、输入输出、应用场景，以及该项目在团队工作中的位置。
+                  </p>
+
+                  <h4>我的工作</h4>
+                  <ul class="project__bullets">
+                    <li>待填写：负责的模块、工具链或流程。</li>
+                    <li>待填写：解决的具体问题或优化点。</li>
+                    <li>待填写：交付的脚本、数据、系统功能或验证结果。</li>
+                  </ul>
                 </div>
 
-                <div class="project__media">
-                  <h4>补充演示</h4>
-                  <video controls preload="metadata" aria-label="全身遥操补充演示视频">
-                    <source src="./assets/videos/抓取.mp4" type="video/mp4" />
-                  </video>
+                <div>
+                  <h4>技术栈</h4>
+                  <ul class="project__stack">
+                    <li class="project__stack-item">待填写</li>
+                    <li class="project__stack-item">待填写</li>
+                    <li class="project__stack-item">待填写</li>
+                  </ul>
+
+                  <h4>成果产出</h4>
+                  <p>
+                    待填写：量化结果、上线/交付情况、复用价值或团队反馈。
+                  </p>
                 </div>
               </div>
             </div>
@@ -352,7 +500,7 @@
           <li class="skills__list-item btn btn--plain">数据清洗与质量检查</li>
           <li class="skills__list-item btn btn--plain">Linux</li>
           <li class="skills__list-item btn btn--plain">VR 全身数据采集</li>
-          <li class="skills__list-item btn btn--plain">机器人全身遥操</li>
+          <li class="skills__list-item btn btn--plain">机器人全身遥操作</li>
           <li class="skills__list-item btn btn--plain">数据通讯</li>
         </ul>
       </section>

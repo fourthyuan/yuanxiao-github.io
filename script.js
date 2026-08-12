@@ -75,5 +75,10 @@ projectToggles.forEach((toggle) => {
     toggle.setAttribute('aria-expanded', String(shouldOpen))
     details.hidden = !shouldOpen
     project.classList.toggle('project--open', shouldOpen)
+
+    const actionText = toggle.querySelector('[data-project-action-text]')
+    if (actionText) {
+      actionText.textContent = shouldOpen ? '收起详情' : '查看详情'
+    }
   })
 })

@@ -363,6 +363,14 @@ main {
   line-height: 1.7;
 }
 
+.project__action {
+  width: fit-content;
+  margin-top: 0.25em;
+  color: var(--clr-primary);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
 .project__details {
   padding: 0 1.6em 1.6em;
   border-top: 1px solid var(--clr-border);
