@@ -32,7 +32,7 @@
             <a class="link link--nav" href="#projects">工作经历</a>
           </li>
           <li class="nav__list-item">
-            <a class="link link--nav" href="#internships">实习经历</a>
+            <a class="link link--nav" href="#internships">在校经历</a>
           </li>
           <li class="nav__list-item">
             <a class="link link--nav" href="#skills">技术能力</a>
@@ -203,7 +203,7 @@
                   <p>
                     聚焦人体动作数据的采集与质量处理：将 PICO/XRobot 追踪结果整理为标准化文件，
                     保证数据可复查、可复用；完成多相机视频流到
-         SMPL-X 动作恢复的上游流程，并将轨迹整理为 BeyondMimic / Isaac Lab 可直接接入的 motion 数据，熟悉训练前的数据格式规范、回放验证流程及任务接入方式。
+         SMPL-X 动作恢复的上游流程，并将轨迹整理为训练可直接接入的 motion 数据，熟悉训练前的数据格式规范、回放验证流程及任务接入方式。
                   </p>
 
                   <h4>我的工作</h4>
@@ -213,7 +213,7 @@
                     <li>处理重复时间戳和设备时间戳异常，避免采集结果出现停帧或时间轴塌缩。</li>
                     <li>使用 One Euro 滤波、高频帧重采样与坐标原点修复，提升动作数据连续性。</li>
                     <li>将处理后的数据保存为可读取的 NPZ，统一关节顺序、采样频率和姿态格式。</li>
-                    <li>将重定向结果接入 BeyondMimic / Isaac Lab 的 motion 管线，用于校验 motion csv、npz、replay 与训练入口之间的数据格式一致性。</li>
+                    <li>将重定向结果接入Isaac Lab 的 motion 管线，用于校验 motion csv、npz、replay 与训练入口之间的数据格式一致性。</li>
                   </ul>
                 </div>
 
@@ -292,7 +292,7 @@
                     进行人体动作到人形机器人关节轨迹的离线重定向与数据处理。
                     使用 GMR 处理 SMPL-X、BVH 等人体动作输入，编写脚本自动配置人体缩放，处理四元数姿态变换、
                     配置 IK 目标和关节权重，再通过 MuJoCo 观察机器人动作效果；同时使用 SOMA
-                    完成 BVH 到机器人 CSV/PKL 的完整流程，并完成 BeyondMimic 基础训练流程验证。
+                    完成 BVH 到机器人 CSV/PKL 的完整流程，并完成强化学习基础训练流程验证。
                   </p>
 
                   <h4>我的工作</h4>
@@ -364,7 +364,7 @@
       </section>
 
       <section id="internships" class="section internships projects">
-        <h2 class="section__title">实习经历</h2>
+        <h2 class="section__title">在校经历</h2>
 
         <div class="projects__grid">
           <article class="project">
@@ -377,9 +377,9 @@
             >
               <span class="project__summary-main">
                 <span class="project__eyebrow">Internship 01</span>
-                <span class="project__name">实习项目名称一</span>
+                <span class="project__name">Unity3D + OpenPose 数字人动作驱动（实习）</span>
                 <span class="project__description">
-                  待填写：用一到两句话概括该实习项目的业务背景、技术方向和个人职责。
+                  基于 OpenPose 人体关键点检测与 Unity3D 动画系统，实现人体动作到 FBX 数字人骨架的实时映射，负责骨骼绑定、关节映射与 IK 调试。
                 </span>
                 <span class="project__action">
                   <span data-project-action-text>查看详情</span>
@@ -391,36 +391,54 @@
             <div class="project__details" id="internship-project-one" hidden>
               <div class="project__details-grid">
                 <div>
-                  <h4>实习信息</h4>
+                  <h4>项目信息</h4>
                   <p>
-                    待填写：公司 / 部门 / 岗位 / 实习时间。
+                    实习项目 / 常州北航唯实智能物联创新中心 / 
                   </p>
 
                   <h4>项目介绍</h4>
                   <p>
-                    待填写：说明项目目标、输入输出、应用场景，以及该项目在团队工作中的位置。
+                    项目面向数字人实时动作驱动，基于 OpenPose 提取人体关键点，在 Unity3D 中驱动
+                    FBX 数字人模型，完成从人体骨架表征到目标骨架执行的动作重定向流程。项目重点处理
+                    源人体骨架与目标骨架在层级结构、关节朝向、骨长比例和自由度上的差异，保证动作迁移
+                    结果的稳定性与自然度。
                   </p>
 
                   <h4>我的工作</h4>
                   <ul class="project__bullets">
-                    <li>待填写：负责的模块、工具链或流程。</li>
-                    <li>待填写：解决的具体问题或优化点。</li>
-                    <li>待填写：交付的脚本、数据、系统功能或验证结果。</li>
+                    <li>负责 FBX 数字人模型的骨骼绑定与骨架适配，梳理人体骨架与目标数字人骨架的关节对应关系、层级结构与初始姿态差异。</li>
+                    <li>基于 OpenPose 输出的人体关键点数据，完成坐标转换、关节映射与姿态驱动，打通从视觉感知到数字人动作执行的流程。</li>
+                    <li>结合 IK / FK 约束处理手臂、腿部等末端链路，修正因骨长差异与自由度不一致导致的动作失真与末端漂移。</li>
+                    <li>对动作结果进行插值、平滑与异常帧修正，提升实时驱动过程中的连续性与稳定性。</li>
                   </ul>
                 </div>
 
                 <div>
                   <h4>技术栈</h4>
                   <ul class="project__stack">
-                    <li class="project__stack-item">待填写</li>
-                    <li class="project__stack-item">待填写</li>
-                    <li class="project__stack-item">待填写</li>
+                    <li class="project__stack-item">Unity3D</li>
+                    <li class="project__stack-item">C#</li>
+                    <li class="project__stack-item">OpenPose</li>
+                    <li class="project__stack-item">FBX</li>
+                    <li class="project__stack-item">骨骼绑定</li>
+                    <li class="project__stack-item">动作重定向</li>
+                    <li class="project__stack-item">IK / FK</li>
                   </ul>
 
                   <h4>成果产出</h4>
                   <p>
-                    待填写：量化结果、上线/交付情况、复用价值或团队反馈。
+                    完成人体动作到 FBX 数字人骨架的实时驱动与骨骼适配流程，形成骨骼绑定、关节映射、
+                    IK 调整与动作平滑的实现方案。
                   </p>
+                </div>
+              </div>
+
+              <div class="project__media-grid">
+                <div class="project__media">
+                  <h4>数字人动作驱动演示</h4>
+                  <video controls preload="metadata" aria-label="数字人动作驱动演示视频">
+                    <source src="./assets/videos/1.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </div>
             </div>
@@ -436,9 +454,9 @@
             >
               <span class="project__summary-main">
                 <span class="project__eyebrow">Internship 02</span>
-                <span class="project__name">实习项目名称二</span>
+                <span class="project__name">双目视觉环境重建与六轴机械臂定位</span>
                 <span class="project__description">
-                  待填写：用一到两句话概括该实习项目的业务背景、技术方向和个人职责。
+                  负责双目视觉定位、坐标系转换、机器人运动学解算与上位机联调，实现目标标识在机器人基坐标系下的三维定位与真机验证。
                 </span>
                 <span class="project__action">
                   <span data-project-action-text>查看详情</span>
@@ -450,36 +468,58 @@
             <div class="project__details" id="internship-project-two" hidden>
               <div class="project__details-grid">
                 <div>
-                  <h4>实习信息</h4>
+                  <h4>项目信息</h4>
                   <p>
-                    待填写：公司 / 部门 / 岗位 / 实习时间。
+                    在校项目（校企合作） / 常州库曼智能 / 
                   </p>
 
                   <h4>项目介绍</h4>
                   <p>
-                    待填写：说明项目目标、输入输出、应用场景，以及该项目在团队工作中的位置。
+                    项目面向工业作业前的环境重建与目标定位需求，将双目相机安装于六轴机械臂末端，
+                    通过识别指定标识获取目标在相机坐标系下的三维位置，再结合机械臂末端位姿参数与
+                    旋转矩阵，完成相机坐标系到机器人基坐标系的转换，实现目标在世界坐标系下的精确
+                    定位。项目重点优化多拍照点位和机器人基坐标系变化场景下的适应能力，减少重复标定成本。
                   </p>
 
                   <h4>我的工作</h4>
                   <ul class="project__bullets">
-                    <li>待填写：负责的模块、工具链或流程。</li>
-                    <li>待填写：解决的具体问题或优化点。</li>
-                    <li>待填写：交付的脚本、数据、系统功能或验证结果。</li>
+                    <li>负责项目整体程序设计与算法实现，完成视觉识别、三维测算、坐标转换、通讯联调与文档交付。</li>
+                    <li>基于 OpenCV 和 C++ 完成标识识别，并结合双目标定、立体校正、立体匹配与视差估计实现深度测量。</li>
+                    <li>基于机器人学中的坐标系变换与旋转矩阵，完成相机坐标系、末端坐标系与基坐标系之间的位姿解算。</li>
+                    <li>设计并实现平面误差处理策略，修正双目测距在复杂环境下的定位偏差，降低 X / Y / Z 三方向误差。</li>
+                    <li>完成上位机与库曼六轴机械臂的以太网通讯联调与真机部署，在企业现场完成定位验证与项目验收。</li>
                   </ul>
                 </div>
 
                 <div>
                   <h4>技术栈</h4>
                   <ul class="project__stack">
-                    <li class="project__stack-item">待填写</li>
-                    <li class="project__stack-item">待填写</li>
-                    <li class="project__stack-item">待填写</li>
+                    <li class="project__stack-item">OpenCV</li>
+                    <li class="project__stack-item">C++</li>
+                    <li class="project__stack-item">双目视觉</li>
+                    <li class="project__stack-item">立体校正</li>
+                    <li class="project__stack-item">视差估计</li>
+                    <li class="project__stack-item">机器人学</li>
+                    <li class="project__stack-item">坐标系转换</li>
+                    <li class="project__stack-item">六轴机械臂</li>
+                    <li class="project__stack-item">上位机通讯</li>
+                    <li class="project__stack-item">真机联调</li>
                   </ul>
 
                   <h4>成果产出</h4>
                   <p>
-                    待填写：量化结果、上线/交付情况、复用价值或团队反馈。
+                    完成目标标识识别、二维到三维坐标转换及机器人基坐标系下定位，企业现场验收通过，
+                    测量误差控制在 x±0.65mm、y±0.7mm、z±0.8mm，并交付算法及相关文档。
                   </p>
+                </div>
+              </div>
+
+              <div class="project__media-grid">
+                <div class="project__media">
+                  <h4>双目视觉与机械臂联调演示</h4>
+                  <video controls preload="metadata" aria-label="双目视觉与机械臂联调演示视频">
+                    <source src="./assets/videos/2.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </div>
             </div>
@@ -492,16 +532,18 @@
         <ul class="skills__list">
           <li class="skills__list-item btn btn--plain">Python</li>
           <li class="skills__list-item btn btn--plain">C/C++</li>
+          <li class="skills__list-item btn btn--plain">OpenCV</li>
+          <li class="skills__list-item btn btn--plain">视觉定位</li>
+          <li class="skills__list-item btn btn--plain">机器人学</li>
           <li class="skills__list-item btn btn--plain">机器人数据重定向</li>
           <li class="skills__list-item btn btn--plain">动作捕捉</li>
-          <li class="skills__list-item btn btn--plain">视频流动作处理</li>
           <li class="skills__list-item btn btn--plain">实时数据处理</li>
           <li class="skills__list-item btn btn--plain">IK / FK</li>
           <li class="skills__list-item btn btn--plain">数据清洗与质量检查</li>
-          <li class="skills__list-item btn btn--plain">Linux</li>
           <li class="skills__list-item btn btn--plain">VR 全身数据采集</li>
           <li class="skills__list-item btn btn--plain">机器人全身遥操作</li>
-          <li class="skills__list-item btn btn--plain">数据通讯</li>
+          <li class="skills__list-item btn btn--plain">真机联调</li>
+          <li class="skills__list-item btn btn--plain">Linux</li>
         </ul>
       </section>
 
